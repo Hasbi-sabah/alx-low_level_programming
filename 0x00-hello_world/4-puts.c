@@ -1,8 +1,11 @@
 #include <stdio.h>
 
-/*
- *Description idk
- */
+/**
+  *main - Entry point
+  *Description: idk
+  *
+  *Return: Always 0 (success)
+  */
 
 int main(void)
 {
