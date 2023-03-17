@@ -22,7 +22,7 @@ int main(void)
 					n4 = 0;
 				for (; n4 <= 9; n4++)
 				{
-					if (!(n1 == 9 && n2 == 9))
+					if (!(n1 == 9 && n2 == 9) && !(n1 == n3 && n2 == n4))
 					{
 						putchar('0' + n1);
 						putchar('0' + n2);
