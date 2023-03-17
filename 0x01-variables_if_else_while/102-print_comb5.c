@@ -27,7 +27,7 @@ int main(void)
 						putchar(' ');
 						putchar('0' + n3);
 						putchar('0' + n4);
-						if (!(n1 == n3 == n4 == 9 && n2 == 8))
+						if (!(n1 == 9 && n3 == 9 && n4 == 9 && n2 == 8))
 						{
 							putchar(',');
 							putchar(' ');
