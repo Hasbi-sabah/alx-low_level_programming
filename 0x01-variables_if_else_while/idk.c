@@ -18,16 +18,14 @@ int main(void)
 			{
 				for (n4 = n2; n4 <= 9; n4++)
 				{
-					if ((n3 == 0 && n4 == 0)||(n1 == n3 && n2 == n4))
-						n4++;
-					if (!(n1 == 9 && n2 == 9))
+					if (!(n4 == 0 && n3 == n1 && n1 == 0));
 					{
 						putchar('0' + n1);
 						putchar('0' + n2);
 						putchar(' ');
 						putchar('0' + n3);
 						putchar('0' + n4);
-						if (!(n1 == n3 == n4 == 9 && n2 == 8))
+						if (!(n1 == 9 && n2 == 8))
 						{
 							putchar(',');
 							putchar(' ');
