@@ -10,7 +10,7 @@ int main(void)
 	long int a, b, sum = 0, fib;
 	int i;
 
-	fib += 2;
+	fib = 2;
 	for (a = 1, b = 2, i = 1; sum < 4000000; i++)
 	{
 		sum = a + b;
