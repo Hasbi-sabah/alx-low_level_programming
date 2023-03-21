@@ -27,7 +27,7 @@ int main(void)
 	{
 		sum2 = (a2 + b2) / 1000;
 		a3 = (a2 + b2) - sum2 * 1000;
-		b3 = (a + b3 + sum2;
+		b3 = (a + b3) + sum2;
 		a2 = b2;
 		b2 = a3;
 		a = b;
