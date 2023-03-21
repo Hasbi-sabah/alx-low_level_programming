@@ -19,6 +19,7 @@ int main(void)
 		a = b;
 		b = sum1;
 	}
+	printf(", ");
 	a2 = a % 1000;
 	a = a / 1000;
 	b2 = b % 1000;
