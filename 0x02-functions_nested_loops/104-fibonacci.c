@@ -20,22 +20,22 @@ int main(void)
 		b = sum1;
 	}
 	a2 = a % 1000;
-	a3 = a / 1000;
+	a = a / 1000;
 	b2 = b % 1000;
-	b3 = b / 1000;
+	b = b / 1000;
 	for (; i < 97; i++)
 	{
 		sum2 = (a2 + b2) / 1000;
-		a = (a2 + b2) - sum2 * 1000;
-		b = (a3 + b3) + sum2;
+		a3 = (a2 + b2) - sum2 * 1000;
+		b3 = (a + b3 + sum2;
 		a2 = b2;
-		b2 = a;
-		a3 = b3;
-		b3 = b;
+		b2 = a3;
+		a = b;
+		b = b3;
 		if (a >= 100)
-			printf("%lu%lu", a, b);
+			printf("%lu%lu", a3, b3);
 		else
-			printf("%lu0%lu", a, b);
+			printf("%lu0%lu", a3, b3);
 		if (i != 96)
 			printf(", ");
 	}
