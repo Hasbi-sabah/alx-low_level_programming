@@ -27,15 +27,15 @@ int main(void)
 	{
 		sum2 = (a2 + b2) / 1000;
 		a3 = (a2 + b2) - sum2 * 1000;
-		b3 = (a + b3) + sum2;
+		b3 = (a + b) + sum2;
 		a2 = b2;
 		b2 = a3;
 		a = b;
 		b = b3;
-		if (a >= 100)
-			printf("%lu%lu", a3, b3);
+		if (a3 >= 100)
+			printf("%lu%lu", b3, a3);
 		else
-			printf("%lu0%lu", a3, b3);
+			printf("%lu0%lu", b3, a3);
 		if (i != 96)
 			printf(", ");
 	}
