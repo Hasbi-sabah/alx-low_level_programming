@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_number - prints an integer
@@ -10,6 +11,7 @@
 void print_number(int n)
 {
 	int m, i, j, k;
+
 	if (n != 0)
 	{
 		if (n < 0)
