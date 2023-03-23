@@ -1,4 +1,5 @@
 #include "main.h"
+#include <math.h>
 
 /**
  *main - Entry point
@@ -8,27 +9,15 @@
 
 int main(void)
 {
-	unsigned long n = 612852475143, i, j, num1 = 0, num2 = 0;
+	long n = 612852475143;
+	int c;
 
-	for (i = n - 1; i > 2; i--) 
+	for (c = sqrt (n); c > 2; c++) 
 	{
-		for (j = 2; j < i; j++)
-		{
-			if (i % j == 0)
-			{
-				num2 = 0;
-				break;
-			}
-			else
-				num2 = i;
-		}
-		if (num2 != 0 && n % num2 == 0)
-		{
-			num1 = num2;
+		if (n % c == 0)
 			break;
-		}
 	}
 
-	printf("%lu\n", num1);
+	printf("%i\n", c);
 	return (0);
 }
