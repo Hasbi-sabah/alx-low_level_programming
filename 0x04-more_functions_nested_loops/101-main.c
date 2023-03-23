@@ -10,7 +10,7 @@ int main(void)
 {
 	print_number(98);
 	_putchar('\n');
-	print_number(412452);
+	print_number(2);
 	_putchar('\n');
 	print_number(1024);
 	_putchar('\n');
