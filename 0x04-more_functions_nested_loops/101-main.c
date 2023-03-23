@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-	print_number(98);
+	print_number(-10101098);
 	_putchar('\n');
-	print_number(2);
+	print_number(222228798);
 	_putchar('\n');
 	print_number(-4);
 	_putchar('\n');

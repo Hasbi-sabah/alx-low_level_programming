@@ -1,37 +1,37 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * print_number - prints an integer
- *@n: integer to be printed
- *
- * Return: none
+ * print_number - blabla
+ *@num: number
  */
 
-void print_number(int n)
+void print_number(int num)
 {
-	int m, i, j, k;
+	unsigned int length = 0;
+	int isNegative = 0;
+	int j;
+	int i;
 
-	if (n != 0)
+	if (num < 0)
 	{
-		if (n < 0)
-		{
-			n = -n;
-			_putchar('-');
-		}
-		for (i = 1, m = n; m >= 10; i++)
-			m /= 10;
-		_putchar('0' + m);
-		for (j = 2; j < i && n >= 100 ; j++)
-		{
-			m = n;
-			for (k = i - j; k > 0; k--)
-				m = m / 10;
-			_putchar('0' + (m % 10));
-		}
-		if (n >= 10)
-			_putchar('0' + (n % 10));
+		isNegative = 1;
+		num = -num;
 	}
-	else
-		_putchar('0');
+	j = num;
+	while (j / 10)
+	{
+		i = j / 10;
+		length++;
+	}
+	if (isNegative)
+		_putchar('-');
+	for (j = length; j > 0; j--)
+	{
+		int expo = 1;
+
+		for (i = 0; i < j; ++i)
+			expo *= 10;
+		_putchar((num / expo) % 10 + '0');
+	}
+	_putchar(num % 10 + '0');
 }
