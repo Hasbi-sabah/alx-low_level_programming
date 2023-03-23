@@ -12,7 +12,7 @@ int main(void)
 	long n = 612852475143;
 	int c;
 
-	for (c = sqrt (n); c > 2; c++) 
+	for (c = sqrt(n); c > 2; c++)
 	{
 		if (n % c == 0)
 			break;
