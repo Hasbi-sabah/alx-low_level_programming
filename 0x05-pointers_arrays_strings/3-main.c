@@ -8,11 +8,9 @@
  */
 int main(void)
 {
-	int len;
 	char *str;
 
-	str = "My first strlen!";
-	len = _strlen(str);
-	printf("%d\n", len);
+	str = "I do not fear computers. I fear the lack of them - Isaac Asimov";
+	_puts(str);
 	return (0);
 }
