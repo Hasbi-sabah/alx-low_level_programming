@@ -9,7 +9,8 @@
 
 int _atoi(char *s)
 {
-	int i, n, m;
+	int i, m;
+	unsigned n;
 
 	for (i = 0, n = 0, m = 1; s[i] != '\0'; i++)
 	{
@@ -22,5 +23,6 @@ int _atoi(char *s)
 				break;
 		}
 	}
-	return (n * m);
+	n *= m;
+	return (n);
 }
