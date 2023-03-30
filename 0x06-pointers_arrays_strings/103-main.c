@@ -35,7 +35,7 @@ int main(void)
 	{
 		printf("%s + %s = %s\n", n, m, res);
 	}
-	n = "999999999";
+	n = "8";
 	m = "1";
 	res = infinite_add(n, m, r2, 10);
 	if (res == 0)
