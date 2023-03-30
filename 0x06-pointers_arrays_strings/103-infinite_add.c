@@ -29,7 +29,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		biggest = l2;
 	if (biggest + 2 <= size_r)
 	{
-		for (leftover = 0; biggest >= 0; l1--, l2--, size_r--, biggest--)
+		for (leftover = 0; biggest >= 0; l1--, l2--, biggest--)
 		{
 			sum = 0;
 			if (l1 >= 0 && l2 >= 0)
@@ -45,7 +45,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			}
 			else
 				leftover = 0;
-			*(r + biggest + 1) = sum + '0';
+			*(r + biggest) = sum + '0';
 		}
 		if (leftover == 1)
 			*(r + 0) = leftover + '0';
