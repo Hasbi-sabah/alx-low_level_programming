@@ -24,7 +24,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		biggest = l1;
 	else
 		biggest = l2;
-	if (biggest + 1 <= size_r)
+	if (biggest + 2 <= size_r)
 	{
 		if ((n1[l1] - '0') + (n2[l2] - '0') >= 10)
 			biggest = biggest + 1;
