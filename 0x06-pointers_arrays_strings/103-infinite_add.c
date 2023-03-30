@@ -16,9 +16,9 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int l1, l2;
 	int biggest, sum, leftover;
 
-	for(l1 = 0; n1[l1] != '\0'; l1++)
+	for (l1 = 0; n1[l1] != '\0'; l1++)
 		;
-	for(l2 = 0; n2[l2] != '\0'; l2++)
+	for (l2 = 0; n2[l2] != '\0'; l2++)
 		;
 	l1--;
 	l2--;
@@ -27,9 +27,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		biggest = l1;
 	else
 		biggest = l2;
-	if (biggest + 2 > size_r)
-		return (0);
-	else
+	if (biggest >= size_r)
 	{
 		for (leftover = 0; biggest >= 0; l1--, l2--, size_r--, biggest--)
 		{
@@ -42,7 +40,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 				sum = (n2[l2] - '0') + leftover;
 			if (sum >= 10)
 			{
-				sum =- 10;
+				sum = sum - 10;
 				leftover = 1;
 			}
 			else
@@ -51,4 +49,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		}
 		return (r);
 	}
+	else
+		return (0);
 }
