@@ -43,7 +43,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			}
 			else
 				leftover = 0;
-			*(r + biggest) = sum + '0';
+			*(r + biggest + 1) = sum + '0';
 		}
 		if (leftover == 1)
 			*(r + 0) = leftover + '0';
