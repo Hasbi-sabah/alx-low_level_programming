@@ -23,5 +23,5 @@ unsigned int _strspn(char *s, char *accept)
 		if (s[j] != '\0')
 			n++;
 	}
-	return (n);
+	return (n+1);
 }
