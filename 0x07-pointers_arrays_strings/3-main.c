@@ -10,7 +10,7 @@
 int main(void)
 {
 	char *s = "hello, world";
-	char *f = "oleh";
+	char *f = "";
 	unsigned int n;
 
 	n = _strspn(s, f);
