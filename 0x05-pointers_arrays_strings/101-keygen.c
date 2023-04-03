@@ -16,10 +16,10 @@ int main(void)
 	srand(time(NULL));
 	for (i = 0; i < 100; i++)
 	{
-		password[i] = rand() % 78;
+		password[i] = rand() % 50;
 		sum += (password[i] + '0');
 		putchar(password[i] + '0');
-		if ((2772 - sum) - '0' < 78)
+		if ((2772 - sum) - '0' < 50)
 		{
 			n = 2772 - sum - '0';
 			sum += n;
