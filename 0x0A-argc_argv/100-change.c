@@ -12,19 +12,32 @@
 
 int main(int argc, char *argv[])
 {
-	int i, arg, sum;
-	char *p;
+	int n, coin;
 
-	for (i = 1, sum = 0; i < argc; i++)
+	if (argc != 2)
 	{
-		arg = strtol(argv[i], &p, 10);
-		if (*p !=  '\0')
-		{
-			printf("Error\n");
-			return (1);
-		}
-		sum += arg;
+		printf("Error\n");
+		return (1);
 	}
-	printf("%i\n", sum);
+	n = atoi(argv[1]);
+	if (n < 0)
+	{
+		printf("0\n");
+		return (0);
+	}
+	for (coin = 0; n > 0; coin++)
+	{
+		if (n >= 25)
+			n -= 25;
+		else if (n >= 10)
+			n -= 10;
+		else if (n >= 5)
+			n -= 5;
+		else if (n >= 2)
+			n -= 2;
+		else
+			n -= 1;
+	}
+	printf("%i\n", coin);
 	return (0);
 }
