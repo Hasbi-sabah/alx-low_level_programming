@@ -25,13 +25,13 @@ char **strtow(char *str)
 	p = malloc(sizeof(char *) * (words + 1));
 	if (p == NULL || words == 0)
 		return (NULL);
-	for (i = 0, k = 0; k <= words && str[i] != '\0'; i++, k++)
+	for (i = 0, k = 0; k < words && str[i] != '\0'; i++, k++)
 	{
 		if (str[i] != ' ')
 		{
 			for (len = 0; str[i + len] != ' ' && str[i + len] != '\0'; len++)
 				;
-			p[k] = malloc(sizeof(char) * (len + 2));
+			p[k] = malloc(sizeof(char) * (len + 1));
 			if (p[k] == NULL)
 			{
 				for (; k >= 0; k--)
