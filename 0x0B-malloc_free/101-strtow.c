@@ -15,18 +15,15 @@ char **strtow(char *str)
 	char **p;
 	int i, j, k, words, len;
 
-	if (str == NULL || str[0] == '\0'
-			|| (str[0] == ' ' && str[1] == '\0'))
-		return (NULL);
 	for (i = 0, words = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] == ' ' && str[i + 1] != ' ')
+		if (str[i] == ' ' && i != 0 && str[i - 1] != ' ')
 			words++;
 	}
 	p = malloc(sizeof(char *) * (words + 1));
 	if (p == NULL || words == 0)
 		return (NULL);
-	for (i = 0, k = 0; str[i] != '\0'; i++, k++)
+	for (i = 0, k = 0; k < words; i++, k++)
 	{
 		if (str[i] != ' ')
 		{
