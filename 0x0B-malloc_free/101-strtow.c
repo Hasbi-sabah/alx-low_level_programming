@@ -29,7 +29,7 @@ char **strtow(char *str)
 		{
 			for (len = 0; str[len] != ' ' && str[len] != '\0'; len++)
 				;
-			p[k] = malloc(sizeof(char) * (len + 2));
+			p[k] = malloc(sizeof(char) * (len + 1));
 			if (p[k] == NULL)
 			{
 				for (; k >= 0; k--)
