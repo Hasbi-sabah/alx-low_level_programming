@@ -29,7 +29,7 @@ char **strtow(char *str)
 		{
 			for (len = 0; str[len] != ' ' && str[len] != '\0'; len++)
 				;
-			p[k] = malloc(sizeof(char) * (len + 1));
+			p[k] = malloc(sizeof(char) * (len + 2));
 			if (p[k] == NULL)
 			{
 				for (; k >= 0; k--)
@@ -40,8 +40,10 @@ char **strtow(char *str)
 			for (j = 0; str[i] != ' ' && str[i] != '\0'; j++, i++)
 				p[k][j] = str[i];
 			p[k][j] = '\0';
+			if (str[i] != '\0')
+				i--;
 		}
-		else if (str[i] == ' ' && str[i] == '\0')
+		else if (str[i] == ' ' && str[i + 1] == '\0')
 			break;
 		else
 			k--;
