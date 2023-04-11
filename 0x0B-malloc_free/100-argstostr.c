@@ -20,7 +20,7 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 	for (len = 0, i = 0; i < ac; i++, len++)
 	{
-		for (j = 0; av[i][j] != '\0'; len++)
+		for (j = 0; av[i][len] != '\0'; j++, len++)
 			;
 	}
 	p = (char *)malloc((sizeof(char) * len) + 1);
