@@ -41,6 +41,8 @@ char **strtow(char *str)
 				p[k][j] = str[i];
 			p[k][j] = '\0';
 		}
+		else if (str[i] == ' ' && str[i] == '\0')
+			break;
 		else
 			k--;
 	}
