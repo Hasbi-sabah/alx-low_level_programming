@@ -13,27 +13,24 @@
 
 char *argstostr(int ac, char **av)
 {
-	char **p;
-	int i, j, len;
+	char *p;
+	int i, j, k, len;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	p = (char **)malloc(sizeof(char *) * ac);
-	for (i = 0; i < ac ; i++)
+	for (len = 0, i = 0; i < ac; i++, len++)
 	{
-		for (len = 0; av[i][len] != '\0'; len++)
+		for (; av[i][len] != '\0'; len++)
 			;
-		p[i] = (char *)malloc(sizeof(char) * len + 1);
-		if (p == NULL)
-		{
-			for (; i >= 0; i--)
-				free(p[i]);
-			free(p);
-			return (NULL);
-		}
-		for (j = 0; j < len; j++)
-			p[i][j] = av[i][j];
-		p[i][len] = '\n';
 	}
-	return (*p);
+	p = (char *)malloc(sizeof(char) * len);
+	if (p == NULL)
+		return (NULL);
+	for (i = 0, k = 0; i < ac; i++, k++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++, k++)
+			p[k] = av[i][j];
+		p[k] = '\n';
+	}
+	return (p);
 }
