@@ -20,7 +20,7 @@ char **strtow(char *str)
 		if (str[i] == ' ' && (i != 0 && str[i - 1] != ' '))
 			words++;
 	}
-	if (str[i - 1] != ' ')
+	if (str[i - 1] != ' ' && word != 0)
 		words++;
 	p = malloc(sizeof(char *) * (words + 1));
 	if (p == NULL || words == 0)
