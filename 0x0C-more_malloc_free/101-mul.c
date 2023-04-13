@@ -14,7 +14,7 @@ int _is_digit(char *av, int len);
  */
 int main(int ac, char *av[])
 {
-	int i, j, len1, len2, sum, leftover;
+	int i, j, len1, len2, leftover, flag;
 	int *p_total, c1, c2;
 
 	if (ac != 3)
@@ -42,25 +42,25 @@ int main(int ac, char *av[])
 	for (i = len1 - 1; i >= 0; i--)
 	{
 		c1 = av[1][i] - '0';
-		for (j = len2 - 1, sum = 0, leftover = 0; j >= 0; j--)
+		for (j = len2 - 1, leftover = 0; j >= 0; j--)
 		{
 			c2 = av[2][j] - '0';
-			sum += p_total[i + j + 1] + (c1 * c2) + leftover;
-			p_total[i + j + 1] = sum % 10;
-			leftover = sum / 10;
+			leftover += p_total[i + j + 1] + (c1 * c2);
+			p_total[i + j + 1] = leftover % 10;
+			leftover /= 10;
 		}
 		if (leftover > 0)
 			p_total[i + j + 1] += leftover;
 	}
-	for (i = 0; i < len1 + len2; i++)
+	for (i = 0, flag = 0; i < len1 + len2; i++)
 	{
-		if (p_total[i] == 0)
-		{
-			_putchar('0');
-			break;
-		}
+		if (p_total[i])
+			flag = 1;
+		if (flag)
 			_putchar(p_total[i] + '0');
 	}
+	if (!flag)
+		_putchar('0');
 	_putchar('\n');
 	free(p_total);
 	return (0);
