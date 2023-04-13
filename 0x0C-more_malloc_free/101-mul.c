@@ -59,7 +59,6 @@ int main(int ac, char *av[])
 			_putchar('0');
 			break;
 		}
-		else
 			_putchar(p_total[i] + '0');
 	}
 	_putchar('\n');
