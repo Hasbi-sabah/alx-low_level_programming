@@ -2,6 +2,8 @@
 
 /**
  * main - entry point
+ * @ac: aarg number
+ * @av: args
  * Return: 0
  */
 
