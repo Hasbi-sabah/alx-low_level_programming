@@ -18,7 +18,7 @@ int main(int ac, char *av[])
 	}
 	a = atoi(av[1]);
 	b = atoi(av[3]);
-	if (get_op_func(av[2]) == NULL)
+	if (!get_op_func(av[2]))
 	{
 		printf("Error\n");
 		exit(99);
