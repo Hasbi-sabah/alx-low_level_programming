@@ -28,7 +28,7 @@ int main(int ac, char *av[])
 	{
 		if (i == (atoi(av[1]) - 1))
 		{
-			printf("%2hhx\n", address[i]);
+			printf("%.2hhx\n", address[i]);
 			return (0);
 		}
 		printf("%02hhx ", address[i]);
