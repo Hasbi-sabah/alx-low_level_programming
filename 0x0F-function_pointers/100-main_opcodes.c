@@ -15,12 +15,12 @@ int main(int ac, char *av[])
 
 	if (ac != 2)
 	{
-		printf("Error");
+		printf("Error\n");
 		exit(1);
 	}
 	if (atoi(av[1]) < 0)
 	{
-		printf("Error");
+		printf("Error\n");
 		exit(2);
 	}
 	address = (char *)main;
