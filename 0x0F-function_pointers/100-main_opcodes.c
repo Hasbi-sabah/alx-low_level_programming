@@ -24,10 +24,9 @@ int main(int ac, char *av[])
 		exit(2);
 	}
 	address = (char *)main;
-	j = atoi(av[1]);
-	for (i = 0; i < j; i++)
+	for (i = 0; i < atoi(av[1]); i++)
 	{
-		if (i == j - 1)
+		if (i == (atoi(av[1]) - 1))
 		{
 			printf("%2hhx\n", address[i]);
 			return (0);
