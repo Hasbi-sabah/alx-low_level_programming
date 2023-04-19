@@ -10,7 +10,7 @@
 
 int main(int ac, char *av[])
 {
-	int i;
+	int i, j;
 	char *address;
 
 	if (ac != 2)
@@ -24,9 +24,10 @@ int main(int ac, char *av[])
 		exit(2);
 	}
 	address = (char *)main;
-	for (i = 0; i < atoi(av[1]); i++)
+	j = atoi(av[1]);
+	for (i = 0; i < j; i++)
 	{
-		if (i == (atoi(av[1]) - 1))
+		if (i == j - 1)
 		{
 			printf("%2hhx\n", address[i]);
 			return (0);
