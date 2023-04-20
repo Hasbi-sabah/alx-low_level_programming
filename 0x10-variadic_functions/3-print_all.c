@@ -79,7 +79,11 @@ void s_print(va_list pars)
 	char *p;
 
 	p = va_arg(pars, char *);
-	if (!p)
-		p = "(nil)";
+	switch (!!p)
+	{
+		case 0:
+			p = "(nil)";
+			break;
+	}
 	printf("%s", p);
 }
