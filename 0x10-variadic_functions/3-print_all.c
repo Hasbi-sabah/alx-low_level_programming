@@ -76,5 +76,10 @@ void f_print(va_list pars)
 
 void s_print(va_list pars)
 {
-	printf("%s", va_arg(pars, char *));
+	char *p;
+
+	p = va_arg(pars, char *);
+	if (!p)
+		p = "(nil)";
+	printf("%s", p);
 }

@@ -2,6 +2,7 @@
 #define VAR_FUN_H
 
 #include <stdarg.h>
+#include <stddef.h>
 
 /**
  * struct list - list of chars
