@@ -1,14 +1,9 @@
-	global main
+          global    main
+          extern    printf
 main:
-	mov edx,len
-	mov ecx, msg
-	mov ebx,1
-	mov eax,4
-	int 0x80
-
-	mov eax,1
-	int 0x80
-
-section .data
-msg db 'Hello, Holberton', 0xa
-len equ $ - msg
+	  mov   edi, hello
+	  xor   eax, eax
+	  call  printf
+	  mov 	eax, 0
+	  ret
+hello: db `Hello, Holberton\n`,0
