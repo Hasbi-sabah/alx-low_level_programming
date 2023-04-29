@@ -12,8 +12,8 @@ size_t free_listint_safe(listint_t **h)
 
 	if (!h)
 		return (0);
-	for (i = 0; *h; *h = (*h)->next, free(temp), i++)
+	for (i = 0; *h && *h < (*h)->next; *h = (*h)->next, free(temp), i++)
 		temp = *h;
-	h = NULL;
+	*h = NULL;
 	return (i);
 }
