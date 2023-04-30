@@ -18,8 +18,8 @@ listint_t *find_listint_loop(listint_t *head)
 		{
 			head = head->next;
 			node = head;
-			break;
+			return (node);
 		}
 	}
-	return (node);
+	return (NULL);
 }
