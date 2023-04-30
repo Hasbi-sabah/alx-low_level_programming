@@ -8,14 +8,15 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *node;
+	listint_t *node = NULL;
 
 	if (!head)
 		return (NULL);
-	for (node = NULL; head; head = head->next)
+	for (; head; head = head->next)
 	{
 		if (head->next >= head)
 		{
+			head = head->next;
 			node = head;
 			break;
 		}

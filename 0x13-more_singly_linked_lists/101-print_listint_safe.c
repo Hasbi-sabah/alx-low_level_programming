@@ -9,13 +9,14 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t i;
+	const listint_t *temp = head;
 
 	if (!head)
 		return (0);
 	for (i = 0; head; head = head->next, i++)
 	{
 		printf("[%p] %i\n", (void *)head, head->n);
-		if (head->next >= head)
+		if (head->next >= head && head->next <= temp && i)
 		{
 			head = head->next;
 			printf("-> [%p] %i\n", (void *)head, head->n);
