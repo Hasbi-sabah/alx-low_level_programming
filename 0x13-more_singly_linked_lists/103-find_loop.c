@@ -9,29 +9,23 @@
 listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *single, *dble;
-	int flag = 0;
 
 	if (!head)
 		return (NULL);
 	single = dble = head;
 	while (single && dble)
 	{
-		if (!flag)
-		{
-			single = single->next;
-			dble = dble->next->next;
-		}
-		if (flag)
-		{
-			single = single->next;
-			dble = dble->next;
-		}
+		single = single->next;
+		dble = dble->next->next;
 		if (single == dble)
 		{
-			if (flag)
-				return (single);
 			single = head;
-			flag = 1;
+			while (single != dble)
+			{
+				single = single->next;
+				dble = dble->next;
+			}
+			return (single);
 		}
 	}
 	return (NULL);
