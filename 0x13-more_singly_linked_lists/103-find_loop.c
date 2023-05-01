@@ -8,17 +8,30 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *node = NULL;
+	listint_t *single, *dble;
+	int flag = 0;
 
 	if (!head)
 		return (NULL);
-	for (; head; head = head->next)
+	single = dble = head;
+	while (single && dble)
 	{
-		if (head->next >= head)
+		if (!flag)
 		{
-			head = head->next;
-			node = head;
-			return (node);
+			single = single->next;
+			dble = dble->next->next;
+		}
+		if (flag)
+		{
+			single = single->next;
+			dble = dble->next;
+		}
+		if (single == dble)
+		{
+			if (flag)
+				return (single);
+			single = head;
+			flag = 1;
 		}
 	}
 	return (NULL);
