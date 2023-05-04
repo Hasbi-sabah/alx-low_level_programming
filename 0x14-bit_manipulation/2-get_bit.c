@@ -9,23 +9,8 @@
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	if (index > (unsigned long int)get_length(n))
+	if (index >= 64)
 		return (-1);
 	n >>= index;
 	return (n & 1);
-}
-
-/**
- * get_length - gets length of binary int
- * @n: binary int
- * Return: int
- */
-
-int get_length(unsigned long int n)
-{
-	int i;
-
-	for (i = 0; n > 0; i++)
-		n >>= 1;
-	return (i);
 }
