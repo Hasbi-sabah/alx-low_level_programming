@@ -9,7 +9,7 @@
 
 int main(int ac, char **av)
 {
-	int ret_from, ret_to, i;
+	int ret_from, ret_to;
 	ssize_t n_from, n_to;
 	char *from = NULL, *to = NULL, buffer[1024];
 
