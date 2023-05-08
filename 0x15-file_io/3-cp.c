@@ -28,10 +28,15 @@ int main(int ac, char **av)
 		if (n_from == -1)
 			error(98, from, to);
 		n_to = write(ret_to, buffer, n_from);
-	} while (n_from == 1024 && n_to != -1);
-	if (n_to == -1)
-		error(99, from, to);
-	close(ret_from);
+		if (n_to == -1)
+			error(99, from, to);
+	} while (n_from > 0);
+	n_from = close(ret_from);
+	if (n_from == -1)
+	{
+		dprintf(2, "Error: Can't close fd %i\n", ret_from);
+		exit(100);
+	}
 	n_to = close(ret_to);
 	if (n_to == -1)
 	{
