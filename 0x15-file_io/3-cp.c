@@ -20,7 +20,7 @@ int main(int ac, char **av)
 	ret_from = open(from, O_RDONLY);
 	if (ret_from == -1)
 		error(98, from, to);
-	ret_to = open(to, O_CREAT | O_RDWR | O_TRUNC, 0664);
+	ret_to = open(to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (ret_to == -1)
 		error(99, from, to);
 	do {
