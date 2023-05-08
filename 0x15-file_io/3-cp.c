@@ -24,8 +24,7 @@ int main(int ac, char **av)
 	if (ret_to == -1)
 		error(99, from, to);
 	do {
-		for (i = 0; buffer[i]; i++)
-			buffer[i] = 0;
+		memset(buffer, 0, sizeof(buffer));
 		n_from = read(ret_from, buffer, 1024);
 		if (n_from == -1)
 			error(98, from, to);
