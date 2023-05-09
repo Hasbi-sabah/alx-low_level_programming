@@ -35,12 +35,12 @@ int main(int ac, char **av)
 	n_to = close(ret_to);
 	if (n_from == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", ret_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", ret_from);
 		exit(100);
 	}
 	if (n_to == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", ret_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", ret_to);
 		exit(100);
 	}
 	return (0);
@@ -58,13 +58,13 @@ void error(int n, char *from, char *to)
 	switch (n)
 	{
 		case 97:
-			dprintf(2, "Usage: cp file_from file_to\n");
+			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 			break;
 		case 98:
-			dprintf(2, "Error: Can't read from file %s\n", from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
 			break;
 		case 99:
-			dprintf(2, "Error: Can't write to %s\n", to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 			break;
 	}
 	exit(n);
