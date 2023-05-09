@@ -32,12 +32,12 @@ int main(int ac, char **av)
 			error(99, from, to);
 	} while (n_from > 0);
 	n_from = close(ret_from);
+	n_to = close(ret_to);
 	if (n_from == -1)
 	{
 		dprintf(2, "Error: Can't close fd %i\n", ret_from);
 		exit(100);
 	}
-	n_to = close(ret_to);
 	if (n_to == -1)
 	{
 		dprintf(2, "Error: Can't close fd %i\n", ret_to);
