@@ -1,10 +1,10 @@
 #include "lists.h"
 
 /**
- * free_dlistint - frees a dlistint_t list.
+ * free_list - frees a dlistint_t list.
  * @head: head of list
  */
-void free_dlistint(dlistint_t *head)
+void free_list(dlistint_t *head)
 {
 	dlistint_t *temp;
 
@@ -33,7 +33,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	temp = *head;
 	if (len == 1 && index == 0)
 	{
-		free_dlistint(*head);
+		free_list(*head);
 		*head = NULL;
 	}
 	else if (!index)
