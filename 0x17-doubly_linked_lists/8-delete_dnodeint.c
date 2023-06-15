@@ -1,6 +1,22 @@
 #include "lists.h"
 
 /**
+ * free_dlistint - frees a dlistint_t list.
+ * @head: head of list
+ */
+void free_dlistint(dlistint_t *head)
+{
+	dlistint_t *temp;
+
+	while (head)
+	{
+		temp = head->next;
+		free(head);
+		head = temp;
+	}
+}
+
+/**
  * delete_dnodeint_at_index - deletes node at index
  * @head: head
  * @index: index of the list what node should be deleted.
