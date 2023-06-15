@@ -31,10 +31,10 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (!(*head) || len < index)
 		return (-1);
 	temp = *head;
-	if (len == 1 && index == 0)
+	if (len == 0 && index == 0)
 	{
-		free_list(*head);
 		*head = NULL;
+		free(*head);
 	}
 	else if (!index)
 	{
