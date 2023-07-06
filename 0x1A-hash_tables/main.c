@@ -10,18 +10,26 @@
  */
 int main(void)
 {
-    char *s;
-    unsigned long int hash_table_array_size;
+    hash_table_t *ht;
+    int i;
 
-    hash_table_array_size = 1024;
-    s = "cisfun";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
-    s = "Don't forget to tweet today";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));
-    s = "98";
-    printf("%lu\n", hash_djb2((unsigned char *)s));
-    printf("%lu\n", key_index((unsigned char *)s, hash_table_array_size));  
+    ht = hash_table_create(1024);
+    hash_table_set(ht, "betty", "cool");
+    i = key_index((const unsigned char *)"betty", ht->size);
+    printf("%s, %s\n", ht->array[i]->key, ht->array[i]->value);
+    printf("------------\n");
+    hash_table_set(ht, "dram", "not cool");
+    i = key_index((const unsigned char *)"dram", ht->size);
+    printf("%s, %s\n", ht->array[i]->key, ht->array[i]->value);
+    printf("------------\n");
+    hash_table_set(ht, "vivency", "cool");
+    i = key_index((const unsigned char *)"vivency", ht->size);
+    printf("%s, %s\n", ht->array[i]->key, ht->array[i]->value);
+    printf("%s, %s\n", ht->array[i]->next->key, ht->array[i]->next->value);
+    printf("------------\n");
+    hash_table_set(ht, "dram", "extremly cool");
+    i = key_index((const unsigned char *)"dram", ht->size);
+    printf("%s, %s\n", ht->array[i]->key, ht->array[i]->value);
+    printf("%s, %s\n", ht->array[i]->next->key, ht->array[i]->next->value);
     return (EXIT_SUCCESS);
 }
