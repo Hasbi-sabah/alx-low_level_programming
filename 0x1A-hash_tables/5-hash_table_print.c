@@ -17,7 +17,7 @@ void hash_table_print(const hash_table_t *ht)
 		for (head = ht->array[i]; head; head = head->next)
 		{
 			printf("\'%s\': \'%s\'", head->key, head->value);
-			if (i != (int)ht->size -1)
+			if (i != (int)ht->size - 1)
 				printf(", ");
 		}
 	}
