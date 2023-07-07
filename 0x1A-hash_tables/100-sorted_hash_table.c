@@ -106,8 +106,7 @@ void set_sorted_list(shash_table_t *ht, shash_node_t *node)
 	{
 		node->sprev = ht->stail;
 		node->snext = ht->stail->snext;
-		ht->stail->snext = node;
-		ht->stail = node;
+		ht->stail->snext = node, ht->stail = node;
 	}
 	else
 	{
@@ -116,8 +115,7 @@ void set_sorted_list(shash_table_t *ht, shash_node_t *node)
 			;
 		node->sprev = temp;
 		node->snext = temp->snext;
-		temp->snext->sprev = node;
-		temp->snext = node;
+		temp->snext->sprev = node, temp->snext = node;
 	}
 }
 
@@ -174,11 +172,12 @@ void shash_table_print_rev(const shash_table_t *ht)
 	int i;
 
 	printf("{");
-	for (i = (int)ht->slength - 1, tail = ht->stail; i >= 0; i--, tail = tail->sprev)
+	for (i = (int)ht->slength - 1, tail = ht->stail; i >= 0; tail = tail->sprev)
 	{
 		printf("'%s': '%s'", tail->key, tail->value);
 		if (i > 0)
 			printf(", ");
+		i--;
 	}
 	printf("}\n");
 }
