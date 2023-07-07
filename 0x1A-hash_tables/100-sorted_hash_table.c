@@ -53,7 +53,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	{
 		free(ht->array[index]->value);
 		ht->array[index]->value = value_cp;
-		set_sorted_list(ht, ht->array[index]);
 		return (1);
 	}
 	for (head = ht->array[index]; head; head = head->next)
@@ -62,7 +61,6 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		{
 			free(head->value);
 			head->value = value_cp;
-			set_sorted_list(ht, head);
 			return (1);
 		}
 	}
@@ -206,8 +204,6 @@ void free_slist(shash_node_t *array)
 		head = array;
 		free(array->key);
 		free(array->value);
-		free(array->sprev);
-		free(array->snext);
 		free(head);
 		array = array->next;
 	}
