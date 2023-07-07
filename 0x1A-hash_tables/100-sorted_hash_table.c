@@ -156,7 +156,7 @@ void shash_table_print(const shash_table_t *ht)
 	printf("{");
 	for (head = ht->shead->snext; head != ht->stail; head = head->snext)
 	{
-		printf("'%s': '%s' ", head->key, head->value);
+		printf("'%s': '%s'", head->key, head->value);
 		if (head->snext != ht->stail)
 			printf(", ");
 	}
@@ -174,7 +174,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 	printf("{");
 	for (tail = ht->stail->sprev; tail != ht->shead; tail = tail->sprev)
 	{
-		printf("'%s': '%s' ", tail->key, tail->value);
+		printf("'%s': '%s'", tail->key, tail->value);
 		if (tail->sprev != ht->shead)
 			printf(", ");
 	}
