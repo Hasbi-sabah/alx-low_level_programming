@@ -17,8 +17,16 @@ shash_table_t *shash_table_create(unsigned long int size)
 	new_table->array = malloc(sizeof(shash_node_t *) * size);
 	if (!new_table->array)
 		return (NULL);
-	new_table->shead = NULL;
-	new_table->stail = NULL;
+	new_table->shead = malloc(sizeof(shash_node_t));
+	if (!new_table->shead)
+		return (NULL);
+	new_table->stail = malloc(sizeof(shash_node_t));
+	if (!new_table->stail)
+		return (NULL);
+	new_table->shead->sprev = NULL;
+	new_table->shead->snext = new_table->stail;
+	new_table->stail->sprev = new_table->shead;
+	new_table->stail->snext = NULL;
 	return (new_table);
 }
 
@@ -80,28 +88,19 @@ void set_sorted_list(shash_table_t *ht, shash_node_t *node)
 	int i, idx;
 	shash_node_t *temp;
 
-	if (!ht->slength)
-	{
-		ht->shead = node;
-		node->sprev = NULL;
-		node->snext = NULL;
-		ht->stail = node;
-		return;
-	}
 	idx = 0;
-	for (i = 0, temp = ht->shead; i < (int)ht->slength; temp = temp->snext)
+	for (temp = ht->shead->snext; temp != ht->stail; temp = temp->snext)
 	{
 		if (strcmp(node->key, temp->key) <= 0)
 			break;
 		idx++;
 	}
-	printf("%d, %ld\n", idx, ht->slength);
 	if (!idx)
 	{
 		node->sprev = ht->shead;
-		node->snext = ht->shead->sprev;
-		ht->shead->sprev = node;
-		ht->shead = node;
+		node->snext = ht->shead->snext;
+		ht->shead->snext->sprev = node;
+		ht->shead->snext = node;
 	}
 	else if (idx == (int)ht->slength)
 	{
@@ -153,11 +152,14 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 void shash_table_print(const shash_table_t *ht)
 {
 	shash_node_t *head;
-	int i;
 
 	printf("{");
-	for (i = 0, head = ht->shead; i < (int)ht->slength; i++, head = head->snext)
-		printf("'%s': '%s' ", head->key, head->value);
+	for (head = ht->shead->snext; head != ht->stail; head = head->snext)
+	{
+		printf("'%s': '%s'", head->key, head->value);
+		if (head->snext != ht->stail)
+			printf(", ");
+	}
 	printf("}\n");
 }
 
@@ -168,11 +170,14 @@ void shash_table_print(const shash_table_t *ht)
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	shash_node_t *tail;
-	int i;
 
 	printf("{");
-	for (i = (int)ht->slength, tail = ht->stail; i > 0; tail = tail->sprev)
-		printf("'%s': '%s' ", tail->key, tail->value);
+	for (tail = ht->stail->sprev; tail != ht->shead; tail = tail->sprev)
+	{
+		printf("'%s': '%s'", tail->key, tail->value);
+		if (tail->sprev != ht->shead)
+			printf(", ");
+	}
 	printf("}\n");
 }
 
