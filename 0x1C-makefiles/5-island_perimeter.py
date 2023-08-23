@@ -1,5 +1,11 @@
 #\!/usr/bin/python3
+"""
+module
+"""
 def island_perimeter(grid):
+    """
+    returns the perimeter of the island described in grid
+    """
     perimiter = 0
     for r_idx, row in enumerate(grid):
         for c_idx, column in enumerate(row):
@@ -9,6 +15,9 @@ def island_perimeter(grid):
 
 
 def count_waters(grid, column, r_idx, c_idx):
+    """
+    counts the water around a land
+    """
     water_count = 0
 
     """up is r_idx - 1, same c_idx"""
