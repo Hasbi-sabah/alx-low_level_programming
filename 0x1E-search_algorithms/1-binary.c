@@ -44,11 +44,10 @@ int binary_helper(int *array, int min, int max, int value)
 				printf("\n");
 		}
 		if (array[mid] > value)
-			return (binary_helper(array, 0, mid - 1, value));
+			return (binary_helper(array, min, mid - 1, value));
 		else if (array[mid] < value)
 			return (binary_helper(array, mid + 1, max, value));
-		else if (array[mid] == value)
-			return (mid);
+		return (mid);
 	}
 	return (-1);
 }
