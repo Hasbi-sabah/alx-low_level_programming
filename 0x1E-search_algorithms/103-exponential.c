@@ -16,8 +16,6 @@ int exponential_search(int *array, size_t size, int value)
 
 	if (!array)
 		return (-1);
-	if (array[0] == value)
-		return (0);
 	for (i = 1, prev = 1; 1; i *= 2)
 	{
 		if (array[i] == value)
