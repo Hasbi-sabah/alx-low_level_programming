@@ -18,12 +18,7 @@ int exponential_search(int *array, size_t size, int value)
 		return (-1);
 	for (i = 1, prev = 1; 1; i *= 2)
 	{
-		if (array[i] == value)
-		{
-			printf("Value checked array[%d] = [%d]\n", i, array[i]);
-			return (i);
-		}
-		else if (array[i] >= value || i >= (int)size)
+		if (array[i] >= value || i >= (int)size)
 		{
 			if (i >= (int)size)
 				i = size - 1;
