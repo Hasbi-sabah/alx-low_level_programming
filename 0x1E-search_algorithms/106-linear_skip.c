@@ -15,10 +15,10 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 
 	if (!list || value < list->n)
 		return (NULL);
-	for (prev = list, head = list->express; 1;)
+	if (value == list->n)
+		return (list);
+	for (prev = list, head = list->express; !(!head && flag);)
 	{
-		if (!head && flag)
-			break;
 		if ((!head || head->n > value) && !flag)
 		{
 			if (!head)
