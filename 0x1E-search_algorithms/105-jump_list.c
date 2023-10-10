@@ -23,7 +23,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 			j < (int)size && head->next && (int)head->index < i;
 			j++, head = head->next)
 			;
-		printf("Value checked array[%ld] = [%d]\n", head->index, head->n);
+		printf("Value checked at index [%ld] = [%d]\n", head->index, head->n);
 		if ((head->n > value || i >= (int)size) && !flag)
 		{
 			if (i >= (int)size)
