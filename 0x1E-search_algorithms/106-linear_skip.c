@@ -27,7 +27,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 					;
 			}
 			else
-				printf("Value checked array[%ld] = [%d]\n", head->index, head->n);
+				printf("Value checked at index [%ld] = [%d]\n", head->index, head->n);
 			printf("Value found between indexes [%ld] and [%ld]\n",
 					prev->index, head->index);
 			head = prev;
@@ -37,10 +37,10 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		}
 		else if (head->n == value)
 		{
-			printf("Value checked array[%ld] = [%d]\n", head->index, head->n);
+			printf("Value checked at index [%ld] = [%d]\n", head->index, head->n);
 			return (head);
 		}
-		printf("Value checked array[%ld] = [%d]\n", head->index, head->n);
+		printf("Value checked at index [%ld] = [%d]\n", head->index, head->n);
 		prev = head;
 		if (!flag)
 			head = head->express;
