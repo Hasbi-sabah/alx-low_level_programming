@@ -37,6 +37,9 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 		}
 		else if (head->n == value)
 			return (head);
+
+		if (flag && head->n > value)
+			break;
 		prev = head;
 	}
 	return (NULL);
