@@ -19,7 +19,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		return (list);
 	for (prev = list, head = list->express; !(!head && flag);)
 	{
-		if ((!head || head->n > value) && !flag)
+		if ((!head || head->n >= value) && !flag)
 		{
 			if (!head)
 			{
